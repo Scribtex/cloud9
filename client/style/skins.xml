@@ -51,7 +51,7 @@
             position   : relative;
             overflow   : visible;
             height     : 36px;
-            margin-right:164px;
+            margin-right:106px;
         }
         
         .c9-menu-bar .c9-mbar-logo .c9-mbar-bcont .c9-mbar-round {
@@ -88,15 +88,15 @@
         }
         
         .c9-menu-bar .mainlogo {
-            background: url("images/cloud9logo_transparent.png") no-repeat scroll 0 0 transparent;
+            background: url("images/scribtex_logo_transparent.png") no-repeat scroll 0 0 transparent;
             bottom: 0;
             display: block;
             height: 21px;
             position: absolute;
-            right: -146px;
+            right: -90px;
             text-indent: -800em;
             top: 8px;
-            width: 152px;
+            width: 90px;
         }
     ]]></a:style>
 
@@ -106,7 +106,7 @@
                 <div class="c9-mbar-logo"> 
                     <div class="c9-mbar-bcont">
                         <div class="c9-mbar-cont"> </div>
-                        <a href="/dashboard.html" class="mainlogo" target="_blank" title="back to dashboard">Dashboard</a>
+                        <a href="/" class="mainlogo" target="_blank" title="back to dashboard">Dashboard</a>
                         <div class="c9-mbar-round"></div>
                         <div class="c9-offline"></div>
                     </div>
