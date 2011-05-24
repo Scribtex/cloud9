@@ -173,18 +173,11 @@ return ext.register("ext/code/code", {
                 caption : "Length: {ceEditor.value.length}"
             })),
 
-            mnuView.appendChild(new apf.item({
-                caption : "Syntax Highlighting",
-                submenu : "mnuSyntax"
-            })),
-
             /*mnuView.appendChild(new apf.item({
                 type    : "check",
                 caption : "Overwrite Mode",
                 checked : "{ceEditor.overwrite}"
             })),*/
-
-            mnuView.appendChild(new apf.divider()),
 
             /*mnuView.appendChild(new apf.item({
                 type    : "check",
@@ -211,13 +204,8 @@ return ext.register("ext/code/code", {
                 type    : "check",
                 caption : "Show Invisibles",
                 checked : "[{require('ext/settings/settings').model}::editors/code/@showinvisibles]"
-            })),
-
-            mnuView.appendChild(new apf.item({
-                type    : "check",
-                caption : "Wrap Lines",
-                checked : "[ceEditor.wrapmode]"
             }))
+            
             // Wrap Lines (none),
             // Overwrite mode (overwrite),
             // Full line selection (selectstyle),

@@ -153,20 +153,6 @@ return ext.register("ext/tree/tree", {
         colLeft.appendChild(winFilesViewer);
         
         mnuView.appendChild(new apf.divider()),
-        mnuView.appendChild(new apf.item({
-            id      : "mnuitemHiddenFiles",
-            type    : "check",
-            caption : "Show Hidden Files",
-            checked : "[{require('ext/settings/settings').model}::auto/tree/@showhidden]",
-            onclick : function(){
-                _self.changed = true;
-                require('ext/tree/tree').refresh();
-                require("ext/settings/settings").save();
-            }
-        }));
-        davProject.setAttribute("showhidden", "[{require('ext/settings/settings').model}::auto/tree/@showhidden]")
-        
-        mnuView.appendChild(new apf.divider()),
         
         trFiles.setAttribute("model", fs.model);
         
