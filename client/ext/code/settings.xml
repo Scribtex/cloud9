@@ -15,15 +15,6 @@
         <a:spinner value="[editors/code/@fontsize]" realtime="true" min="1" max="72" width="50" />
     </a:hbox>
     <a:hbox edge="0 5 0 0" align="center" class="underlined">
-        <a:checkbox label="Show print margin" value="[editors/code/@showprintmargin]"  flex="1"/>
-        <a:spinner value="[editors/code/@printmargincolumn]" realtime="true" min="1" max="200" width="50" />
-    </a:hbox>
-    <!--a:hbox edge="0 5 0 0" class="underlined" align="center" padding="5">
-        <a:checkbox label="Wrap Mode" value="[editors/code/@wrapmode]"  flex="1" />
-        <a:spinner value="[editors/code/@wraplimitmin]" realtime="true" min="1" max="200" width="50" />
-        <a:spinner value="[editors/code/@wraplimitmax]" realtime="true" min="1" max="200" width="50" />
-    </a:hbox-->
-    <a:hbox edge="0 5 0 0" align="center" class="underlined">
         <a:checkbox label="Soft tabs" value="[editors/code/@softtabs]"  flex="1" />
         <a:spinner value="[editors/code/@tabsize]" realtime="true" min="1" max="64" width="50" />
     </a:hbox>

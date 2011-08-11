@@ -32,71 +32,17 @@ apf.actiontracker.actions.aceupdate = function(undoObj, undo){
 };
 
 var SupportedModes = {
-    "application/javascript": "javascript",
-    "application/json": "json",
-    "text/css": "css",
-    "text/x-scss": "scss",
-    "text/html": "html",
-    "application/xhtml+xml": "html",
-    "application/xml": "xml",
-    "application/rdf+xml": "xml",
-    "application/rss+xml": "xml",
-    "image/svg+xml": "svg",
-    "application/wsdl+xml": "xml",
-    "application/xslt+xml": "xml",
-    "application/atom+xml": "xml",
-    "application/mathml+xml": "xml",
-    "application/x-httpd-php": "php",
-    "text/x-script.python": "python",
-    "text/x-script.ruby": "ruby",
-    "text/x-script.perl": "perl",
-    "text/x-c": "c_cpp",
-    "text/x-java-source": "java",
-    "text/x-csharp": "csharp",
-    "text/x-script.coffeescript": "coffee",
-    "text/x-web-textile": "textile",
-    "text/x-script.ocaml": "ocaml",
-    "text/x-script.clojure": "clojure"
+    "application/x-tex"    : "latex",
+    "application/x-bibtex" : "latex",
+    "style"                : "latex",
+    "class"                : "latex"
 };
 
 var contentTypes = {
-    "js": "application/javascript",
-    "json": "application/json",
-    "css": "text/css",
-    "scss": "text/x-scss",
-    "sass": "text/x-sass",
-    
-    "xml": "application/xml",
-    "rdf": "application/rdf+xml",
-    "rss": "application/rss+xml",
-    "svg": "image/svg+xml",
-    "wsdl": "application/wsdl+xml",
-    "xslt": "application/xslt+xml",
-    "atom": "application/atom+xml",
-    "mathml": "application/mathml+xml",
-    "mml": "application/mathml+xml",
-    
-    "php": "application/x-httpd-php",
-    "html": "text/html",
-    "xhtml": "application/xhtml+xml",
-    "coffee": "text/x-script.coffeescript",
-    "py": "text/x-script.python",
-    
-    "ru": "text/x-script.ruby",
-    "gemspec": "text/x-script.ruby",
-    "rake": "text/x-script.ruby",
-    "rb": "text/x-script.ruby",
-    
-    "c": "text/x-c",
-    "cc": "text/x-c",
-    "cpp": "text/x-c",
-    "cxx": "text/x-c",
-    "h": "text/x-c",
-    "hh": "text/x-c",
-    
-    "clj": "text/x-script.clojure",
-    "ml": "text/x-script.ocaml",
-    "mli": "text/x-script.ocaml"
+    "tex"  : "application/x-tex",
+    "bib"  : "application/x-bibtex",
+    "sty"  : "style",
+    "cls"  : "class"
 };
 
 return ext.register("ext/code/code", {
@@ -163,9 +109,14 @@ return ext.register("ext/code/code", {
             doc.addEventListener("close", function(){
                 //??? destroy doc.acesession
             });
-        }
+	    }
 
         ceEditor.setProperty("value", doc.acesession);
+		
+		// Make it feel more like a TeX editor than a code editor
+        doc.acesession.setUseWrapMode(true);
+        doc.acesession.setWrapLimitRange(0,0);
+        ceEditor.$editor.setShowPrintMargin(false);
     },
 
     hook : function() {

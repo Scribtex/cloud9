@@ -8,18 +8,10 @@
       ">
         <a:item value="folder" icon="folder.png">Folder</a:item>
         <a:divider />
-        <a:item value="txt" icon="page_white_text.png">Text file</a:item>
-        <a:item value="js" icon="page_white_code.png">JavaScript file</a:item>
-        <a:item value="coffee" icon="page_white_code.png">CoffeeScript file</a:item>
-        <a:item value="html" icon="html.png">HTML file</a:item>
-        <a:item value="xml" icon="page_white_code_red.png">XML file</a:item>
-        <a:item value="css" icon="css.png">CSS file</a:item>
-        <a:item value="scss" icon="css.png">SCSS file</a:item>
-        <a:item value="svg" icon="page_white_picture.png">SVG file</a:item>
-        <a:item value="py" icon="script_code.png">Python file</a:item>
-        <a:item value="php" icon="page_white_php.png">PHP file</a:item>
-        <a:item value="rb" icon="page_white_ruby.png">Ruby file</a:item>
-        <a:item value="mli" icon="page_white_code.png">OCaml file</a:item>
-        <a:item value="clj" icon="page_white_code.png">Clojure file</a:item>
+        <a:item value="tex" icon="page_white_tex.png">LaTeX file</a:item>
+        <a:item value="bib" icon="book.png">BibTeX file</a:item>
+        <a:item value="cls" icon="cls.png">Class file</a:item>
+        <a:item value="sty" icon="sty.png">Style File</a:item>
+        <a:item value="" icon="page_white_text.png">Text file</a:item>
     </a:menu>
 </a:application>
