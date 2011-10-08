@@ -35,36 +35,12 @@
         .c9-menu-bar {
             position      : relative;
             overflow      : visible;
-            height        : 36px;
-            background    : url(images/c9-menu-backg.png) repeat-x 0 0;
-            border-bottom : 1px solid #000000;
+            height        : 24px;
+            background-color : white;
+            border-bottom    : 1px solid #999;
         }
-        
-        .c9-menu-bar .c9-mbar-logo {
-            position   : relative;
-            overflow   : visible;
-            height     : 36px;
-            /*background : url(images/cloud9logo.png) no-repeat right 0;*/
-        }
-        
-        .c9-menu-bar .c9-mbar-logo .c9-mbar-bcont {
-            position   : relative;
-            overflow   : visible;
-            height     : 36px;
-            margin-right:164px;
-        }
-        
-        .c9-menu-bar .c9-mbar-logo .c9-mbar-bcont .c9-mbar-round {
-            position:absolute;
-            overflow:hidden;
-            top:0;
-            right:0;
-            background:url(images/c9-menu-round.png) no-repeat 0 0;
-            width:42px;
-            height:34px;
-        }
-        
-        .c9-menu-bar .c9-mbar-logo .c9-mbar-bcont .c9-offline {
+
+        .c9-menu-bar .c9-offline {
             width:42px;
             height:21px;
             position:absolute;
@@ -75,42 +51,23 @@
             z-index: 100000;
         }
         
-        .c9-menu-bar.offline .c9-mbar-logo .c9-mbar-bcont .c9-offline {
+        .c9-menu-bar.offline .c9-offline {
             display:block;
         }
         
-        .c9-menu-bar .c9-mbar-logo .c9-mbar-bcont .c9-mbar-cont {
+        .c9-menu-bar .c9-mbar-cont {
             position:relative;
             overflow:visible;
             margin:0 42px 0 0;
-            height:34px;
-            background:url(images/c9-menu-backg2.png) repeat-x 0 5px;
-        }
-        
-        .c9-menu-bar .mainlogo {
-            background: url("images/cloud9logo_transparent.png") no-repeat scroll 0 0 transparent;
-            bottom: 0;
-            display: block;
-            height: 21px;
-            position: absolute;
-            right: -146px;
-            text-indent: -800em;
-            top: 8px;
-            width: 152px;
+            height:24px;
         }
     ]]></a:style>
 
     <a:presentation>
-        <a:main container="div/div/div[1]">
+        <a:main container="div[1]">
             <div class="c9-menu-bar"> 
-                <div class="c9-mbar-logo"> 
-                    <div class="c9-mbar-bcont">
-                        <div class="c9-mbar-cont"> </div>
-                        <a href="/dashboard.html" class="mainlogo" target="_blank" title="back to dashboard">Dashboard</a>
-                        <div class="c9-mbar-round"></div>
-                        <div class="c9-offline"></div>
-                    </div>
-                </div>
+                <div class="c9-mbar-cont"> </div>
+                <div class="c9-offline"></div>
             </div>
         </a:main>
     </a:presentation>
@@ -1247,62 +1204,20 @@
             line-height        : 17px;
         }
         
-        .c9-menu-btn .c9-left {
-            width:5px;
-            height:24px;
-            position:absolute;
-            overflow:hidden;
-            top:0;
-            left:0;
-        }
-        
-        .c9-menu-btn .c9-right {
-            width:5px;
-            height:24px;
-            position:absolute;
-            overflow:hidden;
-            top:0;
-            right:0;
-        }
-        
         .c9-menu-btn .c9-label {
             font-family   : Tahoma, Arial;
             font-size     : 12px;
             line-height   : 14px;
-            color         : #e8e8e8;
+            color         : #333;
             height        : 20px;
-            padding       : 4px 2px 0 2px;
-            margin        : 0 5px;
-            text-shadow   : rgba(41, 42, 43, 1) 0px 1px 0px;
-        }
-        
-        .c9-menu-btnOver .c9-left {
-            background:url(images/menu-btn.png) no-repeat 0 0;
-        }
-        
-        .c9-menu-btnOver .c9-right {
-            background:url(images/menu-btn.png) no-repeat 0 -48px;
-        }
-        
-        .c9-menu-btnOver .c9-label {
-            background:url(images/menu-btn.png) repeat-x 0 -24px;
-        }
-        
-        .c9-menu-btnDown .c9-left {
-            background:url(images/menu-btn.png) no-repeat 0 -72px;
-        }
-        
-        .c9-menu-btnDown .c9-right {
-            background:url(images/menu-btn.png) no-repeat 0 -120px;
+            padding       : 4px 7px 0 7px;
+            margin        : 0;
         }
         
         .c9-menu-btnDown .c9-label {
-            background:url(images/menu-btn.png) repeat-x 0 -96px;
-        }
-        
-        .c9-menu-btnDown .c9-label {
-           color:#d0e6b3;
-           text-shadow : none; 
+            background-color : #346CB7;
+            color            : white;
+            text-shadow : none; 
         }
         
         .c9-menu-btnDown .c9-fix {
@@ -1323,15 +1238,12 @@
 
     <a:presentation>
         <a:main 
-          caption      = "div[2]/text()"
+          caption      = "div[1]/text()"
           background = "."
-          icon       = "div[2]"
+          icon       = "div[1]"
           minwidth   = "26">
             <div class="c9-menu-btn">
-                <div class="c9-left"></div>
                 <div class="c9-label">-</div>
-                <div class="c9-right"></div>
-                <div class="c9-fix"></div>                  
             </div>
         </a:main>
     </a:presentation>
@@ -3713,21 +3625,19 @@
             font-family   : Tahoma, Arial;
             font-size     : 11px;
             line-height   : 14px;
-            color         : #f1f1f1;
+            color         : #333;
             cursor:default;
             
             display : none;
-            border:1px solid rgba(255, 255, 255, 0.1);
+            border:1px solid #999;
             
-            -moz-box-shadow    : 0px 3px 15px 0px rgba(0, 0, 0, 0.65);
-            -webkit-box-shadow : 0px 3px 15px 0px rgba(0, 0, 0, 0.65);
-            box-shadow         : 0px 3px 15px 0px rgba(0, 0, 0, 0.65);
-            
-            background-color   : #1c1c1c;
-            filter             : progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#1c1c1c', endColorstr='#262626');
-            -ms-filter         : "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#1c1c1c', endColorstr='#262626')";
-            background         : -webkit-gradient(linear, left top, left bottom, from(#1c1c1c), color-stop(0.9, #262626));
-            background         :-moz-linear-gradient(center bottom, #262626 0%, #1c1c1c 20%) repeat scroll 0 0 transparent;
+            background-color   : white;
+            opacity            : 0.95;
+            filter             : alpha(opacity=95);
+
+            -moz-border-radius    : 0 0 5px 5px;
+            -webkit-border-radius : 0 0 5px 5px;
+            border-radius         : 0 0 5px 5px;
         }
 
         .menu blockquote {
@@ -3747,7 +3657,8 @@
             height: 13px;
         }
         .menu div.hover {
-            background-color : #292929;
+            background-color : #346CB7;
+            color            : white;
         }
 
         .menu div.menu_divider{
@@ -3755,9 +3666,8 @@
             padding: 0;
             font-size: 1px;
             
-            margin:0 3px;
-            border-top:1px solid #000000;
-            border-bottom:1px solid #313131;
+            margin:0;
+            border-bottom:1px solid #999;
         }
 
         .menu>div.menu_divider{
@@ -3776,7 +3686,7 @@
         }
 
         .menu div.submenu span{
-            background: url(images/submenu_arrow.gif) no-repeat right -15px;
+            background: url(images/submenu_arrow.gif) no-repeat right 0px;
             width: 4px;
             height: 7px;
             display: block;
@@ -3809,12 +3719,16 @@
         .menu div.selected u{
             background-image: url(images/radio.gif);
             background-repeat: no-repeat;
-            background-position: 0 -16px;
+            background-position: 0 0;
         }
 
         .menu div.checked u{
             background-image: url(images/check.gif);
             background-repeat: no-repeat;
+            background-position: 0 0;
+        }
+
+        .menu div.hover u{
             background-position: 0 -16px;
         }
     ]]></a:style>
@@ -5857,7 +5771,7 @@
     }
 
     .editor_tab .editor_bg {
-        top : 32px;
+        top : 31px;
         bottom : 0px;
         height : auto;
         position : absolute;
@@ -5867,6 +5781,9 @@
         clear: both;
         left: 0;
         right: 0;
+        border: 1px solid #999;
+        border-right: none;
+        border-top:none;
     }
 
     .editor_tab .editor_bg .editor_bg_content {
@@ -5908,7 +5825,7 @@
     .editor_tab .session_page {
         display : none;
         position : absolute;
-        top : 32px;
+        top : 31px;
         bottom : 0;
         left : 0;
         right : 0;
@@ -5917,6 +5834,9 @@
         background-color: #fafafa;
         overflow: hidden;
         clear: both;
+        border: 1px solid #999;
+        border-right: none;
+        border-top:none;
     }
 
     .editor_tab .session_page.curpage{

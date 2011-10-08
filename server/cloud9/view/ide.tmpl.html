@@ -148,19 +148,19 @@
         <a:vbox anchors="0 0 0 0" id="vbMain">
             <a:bar skin="c9-menu-bar" id="logobar">
                 <a:hbox>
-                    <a:hbox id="barMenu" edge="8 5 0 5" padding="3" align="center">
-                        <a:button skin="c9-menu-btn" submenu="mnuFile" margin="1 0 0 0">File</a:button>
-                        <a:button skin="c9-menu-btn" submenu="mnuEdit" margin="1 0 0 0">Edit</a:button>
-                        <a:button skin="c9-menu-btn" submenu="mnuView" margin="1 0 0 0">View</a:button>
+                    <a:hbox id="barMenu" edge="0 5 0 5" padding="3" align="center">
+                        <a:button skin="c9-menu-btn" submenu="mnuFile" margin="0 0 0 0">File</a:button>
+                        <a:button skin="c9-menu-btn" submenu="mnuEdit" margin="0 0 0 0">Edit</a:button>
+                        <a:button skin="c9-menu-btn" submenu="mnuView" margin="0 0 0 0">View</a:button>
                     </a:hbox>
-                    <a:hbox id="barTools" edge="8 0 0 0" padding="3" align="center">
+                    <a:hbox id="barTools" edge="0 0 0 0" padding="3" align="center">
                         <a:divider skin="c9-divider-double" />
                     </a:hbox>
                 </a:hbox>
             </a:bar>
 
             <a:vbox id="mainRow" padding="0" flex="1" splitters="true">
-                <a:hbox id="hboxMain" padding="0" edge="0" flex="1">
+                <a:hbox id="hboxMain" padding="0" edge="7 0 7 0" flex="1">
                     <a:vbox id="navbar" class="black-menu-bar unselectable">
                         <a:filler />
                         <a:bar skin="basic">
@@ -170,11 +170,10 @@
                             <div id="c9version" class="c9version">Version [%version%]</div>
                         </a:bar>
                     </a:vbox>
-                    <a:vbox id="colLeft" padding="3" width="200" />
+                    <a:vbox id="colLeft" edge="0" padding="3" width="200" />
                     <a:splitter width="0" id="splitterPanelLeft" />
-                    <a:vbox id="colMiddle" flex="1" padding="3" />
-                    <a:splitter width="0" id="splitterPanelPdf" />
-                    <a:vbox id="colPdf" flex="1" padding="3" />
+                    <a:vbox id="colMiddle" flex="1" padding="3" edge="0 0 0 12" />
+                    <a:vbox id="colRight" width="0" />
                 </a:hbox>
             </a:vbox>
             
