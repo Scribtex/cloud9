@@ -3877,32 +3877,29 @@
                 overflow : hidden;
                 height   : 30px;
                 top      : -30px;
+                border-bottom: 1px solid #1a50a0;
             }
             
             .fm-window .fm-header .hcontent {
-                background    : url(images/header_backg.png)  repeat-x 0 0;
-                margin-right  : 6px;
                 position      : relative;
                 overflow      : hidden;
-                height        : 23px;
-                padding       : 7px 0 0 7px;
+                height        : 25px;
+                padding       : 3px 0 3px 10px;
                 font-family   : Arial;
                 font-size     : 12px;
-                line-height   : 16px;
+                line-height   : 25px;
                 font-weight   : bold;
                 color         : #e8e8e8;
                 text-shadow   : #2a2c2d 0px 1px 0px;
+                background-color : #346CB7;
+                background   : -webkit-gradient(linear,left bottom,left top, color-stop(0, #2a60a7),color-stop(1, #3873bc));
+                background   : -moz-linear-gradient(center bottom, #2a60a7 0%, #3873bc 100%);
+                -moz-border-radius: 5px 5px 0 0;
+                -webkit-border-radius: 5px 5px 0 0;
+                -o-border-radius: 5px 5px 0 0;
+                border-radius: 5px 5px 0 0;
             }
             
-            .fm-window .fm-header .right {
-                width:6px;
-                height:30px;
-                position:absolute;
-                top:0;
-                right:0;
-                background:url(images/header_right.png) no-repeat 0 0;
-            }
-    
             .fm-window .fm-content {
                 position:absolute;
                 overflow:visible;
@@ -3911,7 +3908,6 @@
                 top  : 30px;
                 right : 0;
                 bottom : 0;
-                background:url(images/panelBg.png) repeat-y right 0;
             }
         ]]></a:style>
         
@@ -3928,7 +3924,6 @@
                 <div class="fm-window">
                     <div class="fm-header">
                         <div class="hcontent">-<div class="icon"></div><div class="buttons"></div></div>
-                        <div class="right"></div>
                     </div>
                     <div class="fm-content"> </div>
                 </div>
@@ -6921,18 +6916,9 @@
             overflow:hidden;
         }
         
-        .filemgr-tree .item-fix.selected {
-            background : url(images/tree_selected.png) repeat 0 0;
-        }
-        
         .filemgr-dragtree,
         .filemgr-treeFocus .item-fix.selected {
-            border-top:1px solid #3a9bec;
-            border-bottom:1px solid #185f97;
-            filter     : progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#2890e5', endColorstr='#1f82d2');
-            -ms-filter : "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#2890e5', endColorstr='#1f82d2')";
-            background : -webkit-gradient(linear, left top, left bottom, from(#2890e5), color-stop(1, #1f82d2));
-            background : -moz-linear-gradient(center bottom, #1f82d2 0%, #2890e5 100%) repeat scroll 0 0 transparent;
+            background-color: #346CB7;
         }
         
         .filemgr-dragtree,
