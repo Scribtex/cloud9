@@ -35,7 +35,7 @@
         .c9-menu-bar {
             position      : relative;
             overflow      : visible;
-            height        : 24px;
+            height        : 38px;
             background-color : white;
             border-bottom    : 1px solid #999;
         }
@@ -59,7 +59,7 @@
             position:relative;
             overflow:visible;
             margin:0 42px 0 0;
-            height:24px;
+            height:38px;
         }
     ]]></a:style>
 
@@ -79,8 +79,6 @@
             width            : 65px;
             overflow         : hidden;
             position         : relative;
-            background-image : url(images/dockLeftBackground.png);
-            border-right    : 1px solid #2E2E2E;
         }
         
         .deploy.mnubtn, .preferences.mnubtn {
@@ -111,7 +109,6 @@
         .black-menu-bar .c9version {
             color       : #696969;
             font-family : Tahoma, Arial;
-            font-size   : 10px;
             text-align  : center;
             padding     : 0 0 3px 0;
             position    : absolute;
@@ -1194,7 +1191,7 @@
 <a:button name="c9-menu-btn">
     <a:style><![CDATA[
         .c9-menu-btn {
-            height             : 24px;
+            height             : 28px;
             overflow           : visible;
             cursor             : default;
             position           : relative;
@@ -1209,8 +1206,8 @@
             font-size     : 12px;
             line-height   : 14px;
             color         : #333;
-            height        : 20px;
-            padding       : 4px 7px 0 7px;
+            height        : 22px;
+            padding       : 6px 10px 0 10px;
             margin        : 0;
         }
         
@@ -1232,7 +1229,7 @@
         }
         
         .hbox > DIV > .c9-menu-btn {
-            height : 24px;
+            height : 28px;
         }
     ]]></a:style>
 
@@ -1252,19 +1249,26 @@
 <a:button name="c9-toolbarbutton">
     <a:style><![CDATA[
         .c9-toolbarbutton {
-            height             : 21px;
+            height             : 28px;
             overflow           : hidden;
             cursor             : default;
             position           : relative;
             -moz-user-select   : none; 
             -khtml-user-select : none; 
             user-select        : none;
-            line-height        : 17px;
-            border:1px solid transparent;
+
+            color                 : #6e6e6e;
+
+            -moz-border-radius    : 3px;
+            -webkit-border-radius : 3px;
+            border-radius         : 3px;
+            border                : 1px solid #999;
+            
+            background            : -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(1, #e8e8e8));
+            background            : -moz-linear-gradient(center bottom, #e8e8e8 0%, #fff 100%) repeat scroll 0 0 transparent;
         }
         
         .hbox > .c9-toolbarbutton {
-            height : 23px;
         }
         
         .c9-toolbarbutton .c9-icon {
@@ -1272,8 +1276,8 @@
             width:23px;
             height:19px;
             position:absolute;
-            top:1px;
-            left:2px;
+            top:3px;
+            left:4px;
             background-position : 0 0;
             background-repeat   : no-repeat;
         }
@@ -1283,35 +1287,21 @@
         }
         
         .c9-toolbarbuttonOver {
-            -moz-border-radius    : 5px;
-            -webkit-border-radius : 5px;
-            border-radius : 5px;
-            border:1px solid #1c1c1c;
-            
-            -moz-box-shadow    : 0px 1px 0px rgba(255, 255, 255, 0.15) inset, 0px 1px 0px 0px rgba(255, 255, 255, 0.1);
-            -webkit-box-shadow : 0px 1px 0px rgba(255, 255, 255, 0.15) inset, 0px 1px 0px 0px rgba(255, 255, 255, 0.1);
-            box-shadow         : 0px 1px 0px rgba(255, 255, 255, 0.15) inset, 0px 1px 0px 0px rgba(255, 255, 255, 0.1);
-            
-            background         : #343434;
-            filter             : progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#3a3a3a', endColorstr='#333333');
-            -ms-filter         : "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#3a3a3a', endColorstr='#333333')";
-            background         : -webkit-gradient(linear, left top, left bottom, from(#3a3a3a), color-stop(1, #333333));
-            background         :-moz-linear-gradient(center bottom, #333333 0%, #3a3a3a 100%) repeat scroll 0 0 transparent;
+            border-color : #666;
+            color        : #333;
         }
         
         .c9-toolbarbutton .c9-label {
+            padding: 6px 6px 0 6px;
             position:relative;
             overflow:hidden;
             font-family:Arial;
-            font-size:12px;
-            color:#d6d6d6;
-            line-height:14px;
-            height:15px;
-            padding:3px 6px 0 6px;
+            font-weight: bold;
+            text-shadow: 0 1px 0 white;
         }
-        
-        .c9-toolbarbuttonEmpty .c9-icon {
-            position:relative;
+
+        .c9-toolbarbuttonEmpty {
+            width: 30px;
         }
         
         .c9-toolbarbuttonEmpty .c9-label {
@@ -1319,7 +1309,7 @@
         }
         
         .c9-toolbarbuttonIcon .c9-label{
-            padding:3px 6px 0 22px;
+            padding:6px 6px 0 26px;
         }
         
         .c9-toolbarbuttonIcon.preview .c9-label {
@@ -1344,7 +1334,7 @@
         }
         
         .c9-toolbarbuttonDown .c9-icon {
-            background-position: 0-19px;
+            background-position: 0 0;
         }
         
         .c9-toolbarbuttonDisabled .c9-icon {
@@ -1352,8 +1342,7 @@
         }
         
         .c9-toolbarbuttonDisabled .c9-label {
-            color       : #606060;
-            text-shadow : rgba(0, 0, 0, 1) 0px 1px 0px;
+            color       : #999;
         }
     ]]></a:style>
 
@@ -1455,19 +1444,34 @@
 <a:button name="mnubtn">
     <a:style><![CDATA[
         .mnubtn {
-            width               : 65px;
-            height              : 68px;
-            padding-top         : 47px;
-            border-bottom       : 1px solid #232323;
-            border-top          : 1px solid #3f3f41;
+            width               : 70px;
+            height              : 60px;
             position            : relative;
             cursor              : default;
             overflow            : hidden;
+
+            border: 1px solid #999;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+
+            background-color: white;
+            background            : -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(1, #e8e8e8));
+            background            : -moz-linear-gradient(center bottom, #e8e8e8 0%, #fff 100%) repeat scroll 0 0 transparent;
+            
+            color                 : #6e6e6e;
+        }
+
+        .mnubtnOver {
+            border-color: #666;
+            color: #333;
         }
         
-        .mnubtnOver,
         .mnubtnDown {
-            background : url(images/radiobutton_over.png) no-repeat 0 0;
+            background       : none;
+            background-color : #346CB7;
+            border-color     : #144C97;
+            color            : white;
         }
         
         .mnubtn .icon {
@@ -1475,9 +1479,7 @@
             background-repeat   : no-repeat;
             width               : 40px;
             height              : 40px;
-            position            : absolute;
-            top                 : 7px;
-            left                : 12px;
+            margin              : auto;
         }
         
         .mnubtn .pointer {
@@ -1492,26 +1494,23 @@
             display             : none;
         }
         
-        .mnubtn SPAN {
+        .mnubtn span {
             font-family         : Tahoma, Arial;
-            font-size           : 10px;
-            color               : #aaaaaa;
             text-align          : center;
             position:relative;
             display:block;
             overflow:hidden;
         }
         
-        .mnubtnDown SPAN {
-            color : white;
-        }
-        
         .mnubtnDown .pointer {
             /*display:block;*/
         }
         
+        .mnubtn .icon {
+            background-position: -40px 0;
+        }
         .mnubtnDown .icon {
-            background-position:-40px 0;
+            background-position: 0 0;
         }
         
         .mnubtn.spacer {
@@ -1530,7 +1529,7 @@
         }
         
         .mnubtn.project_files .icon {
-            background-image:url(images/project_files.png);
+            background-image:url(images/open_files.png);
         }
         
         .mnubtn.open_files .icon {
@@ -2980,10 +2979,7 @@
         .c9-divider {
             position   : relative;
             overflow   : hidden;
-            width:0px;
-            height     : 23px;
-            border-left:1px solid #000000;
-            border-right:1px solid #404040;
+            width      : 12px;
         }
     ]]></a:style>
     
@@ -3000,24 +2996,14 @@
             position   : relative;
             overflow   : hidden;
             width      : 2px;
-            height     : 23px;
-            border-left:1px solid #000000;
-            border-right:1px solid #404040;
-        }
-        
-        .c9-divider-double DIV {
-            position:relative;
-            width:1px;
-            height:23px;
-            border-left:1px solid #404040;
-            border-right:1px solid #000000;
+            height     : 28px;
+            border-right:1px solid #999;
         }
     ]]></a:style>
     
     <a:presentation>
         <a:main>
             <div class="c9-divider-double">
-                <div></div>
             </div>
         </a:main>
     </a:presentation>
@@ -3817,7 +3803,8 @@
             .fm-window .fm-content {
                 position:absolute;
                 overflow:visible;
-                border-right:1px solid #7b7b7b;
+                border :1px solid #999;
+                border-top: none;
                 left : 0;
                 top  : 30px;
                 right : 0;
@@ -5631,7 +5618,7 @@
         width : auto;
 
         background: none;
-        background-color: white;
+        background-color: #f5f5f5;
     }
 
     .editor_tab .btnsesssioncontainer>div {
@@ -5720,24 +5707,24 @@
         white-space : nowrap;
     }
 
-    .editor_tab .btnsesssioncontainer div.down {
-        text-shadow: none;
-        color: #d9d9d9;
-    }
-
     .editor_tab .btnsesssioncontainer div.over .tab_middle {
     }
 
     .editor_tab .btnsesssioncontainer div.curbtn {
         cursor      : default;
         height:25px;
-        color: #333;
     }
 
     .editor_tab .btnsesssioncontainer div.curbtn .tab_middle {
         height: 20px;
         background: none;
         background-color: #fafafa;
+        color: #333;
+    }
+
+    .editor_tab .btnsesssioncontainer div.over .tab_middle {
+        border-color: #666;
+        color: #333;
     }
 
     .editor_tab .scale .btn .tab_middle {
@@ -5781,9 +5768,7 @@
         clear: both;
         left: 0;
         right: 0;
-        border: 1px solid #999;
-        border-right: none;
-        border-top:none;
+        border-left: 1px solid #999;
     }
 
     .editor_tab .editor_bg .editor_bg_content {
@@ -5834,9 +5819,7 @@
         background-color: #fafafa;
         overflow: hidden;
         clear: both;
-        border: 1px solid #999;
-        border-right: none;
-        border-top:none;
+        border-left: 1px solid #999;
     }
 
     .editor_tab .session_page.curpage{
