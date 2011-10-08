@@ -96,8 +96,8 @@ Ide.DEFAULT_PLUGINS = [
     "ext/themes/themes",
     "ext/themes_default/themes_default",
     "ext/panels/panels",
-    "ext/dockpanel/dockpanel",
-    "ext/openfiles/openfiles",
+    //"ext/dockpanel/dockpanel",
+    //"ext/openfiles/openfiles",
     "ext/tree/tree",
     "ext/save/save",
     "ext/gotofile/gotofile",
@@ -109,20 +109,20 @@ Ide.DEFAULT_PLUGINS = [
     "ext/quickwatch/quickwatch",
     "ext/quicksearch/quicksearch",
     "ext/gotoline/gotoline",
-    "ext/html/html",
+    //"ext/html/html",
     "ext/browser/browser",
     "ext/code/code",
     "ext/imgview/imgview",
-    "ext/extmgr/extmgr",
-    "ext/run/run", //Add location rule
-    "ext/debugger/debugger", //Add location rule
-    "ext/noderunner/noderunner", //Add location rule
+    //"ext/extmgr/extmgr",
+    //"ext/run/run", //Add location rule
+    //"ext/debugger/debugger", //Add location rule
+    //"ext/noderunner/noderunner", //Add location rule
     "ext/console/console",
     "ext/tabbehaviors/tabbehaviors",
     "ext/keybindings/keybindings",
     "ext/watcher/watcher",
     "ext/dragdrop/dragdrop",
-    "ext/beautify/beautify",
+    //"ext/beautify/beautify",
 	"ext/latex/compile"
     //"ext/acebugs/acebugs"
 ];
