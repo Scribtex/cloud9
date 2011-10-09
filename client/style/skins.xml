@@ -96,14 +96,24 @@
             bottom   : 20px;
         }
         
-        .black-menu-bar .c9menulogo span {
-            background  : url(images/c9menulogo.png) no-repeat 0 0;
-            width       : 45px;
-            height      : 29px;
-            position    : absolute;
-            left        : 50%;
-            margin-left : -22px;
-            top         : 0;
+        .black-menu-bar .scribtexlogo {
+            background  : url(images/scribtexlion.png) no-repeat center 0;
+            width       : 52px;
+            padding     : 64px 0 7px;
+            text-align  : center;
+
+            font-size: 12px;
+        }
+
+        .black-menu-bar .scribtexlogo .scrib {
+            color : #346CB7;
+        }
+        .black-menu-bar .scribtexlogo .tex {
+            color : #fdbb00;
+        }
+        .black-menu-bar .scribtexlogo .cloud9 {
+            color : #666;
+            font-size: 0.9em;
         }
         
         .black-menu-bar .c9version {

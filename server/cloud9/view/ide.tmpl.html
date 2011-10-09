@@ -2,7 +2,7 @@
 <html [%offlineManifest%] xmlns="http://www.w3.org/1999/xhtml" xmlns:a="http://ajax.org/2005/aml" >
     <head profile="http://www.w3.org/2005/10/profile">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <title>Cloud9 - Your code, anywhere anytime.</title>
+        <title>ScribTeX - Online LaTeX Editor</title>
         <meta name="description" content=""/>
         <meta name="keywords" content=""/>
 
@@ -80,7 +80,7 @@
                 </div>
                 <div class="oldbro_middle_panel">
                     <div class="content">
-                        <p>Your browser is not supported by ajax.org. Please upgrade your browser to one of these modern browsers.</p>
+                        <p>Your browser is not supported by ScribTeX. Please upgrade your browser to one of these modern browsers.</p>
                         <span class="browser_option">
                             <a href="http://www.mozilla.com/firefox" target="_blank">
                                 <img src="[%staticUrl%]/style/images/browsers/ff_32x32.png" alt="" />
@@ -162,6 +162,16 @@
             <a:vbox id="mainRow" padding="0" flex="1" splitters="true">
                 <a:hbox id="hboxMain" padding="0" edge="7 0 0 0" flex="1">
                     <a:vbox id="navbar" class="black-menu-bar unselectable" edge="0 5 0 7">
+                        <a:filler />
+                        <a:bar skin="basic">
+                            <div class="scribtexlogo">
+                                <span class="scrib">Scrib</span><span class="tex">TeX</span>
+                                <br/>
+                                <span class="cloud9">
+                                Powered by <a href="http://github.com/ajaxorg/cloud9">Cloud9</a>
+                                </span>
+                            </div>
+                        </a:bar> 
                     </a:vbox>
                     <a:vbox id="colLeft" edge="0" padding="3" width="200" />
                     <a:splitter width="0" id="splitterPanelLeft" />
