@@ -5635,7 +5635,8 @@
         padding      : 0 4px;
         position     : relative;
         margin-top   : 0;
-        height:25px;
+        height       : 25px;
+        z-index      : 1;
     }
 
     .editor_tab .btnsesssioncontainer .session_btn .tab_middle {
@@ -5768,7 +5769,8 @@
         clear: both;
         left: 0;
         right: 0;
-        border-left: 1px solid #999;
+        border: 1px solid #999;
+        border-top: none;
     }
 
     .editor_tab .editor_bg .editor_bg_content {
@@ -5819,7 +5821,8 @@
         background-color: #fafafa;
         overflow: hidden;
         clear: both;
-        border-left: 1px solid #999;
+        border: 1px solid #999;
+        border-top: none;
     }
 
     .editor_tab .session_page.curpage{
