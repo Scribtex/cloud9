@@ -64,6 +64,7 @@ return ext.register("ext/save/save", {
 
         this.nodes.push(ide.barTools.appendChild(new apf.button({
             id       : "btnSave",
+            caption  : "Save",
             icon     : "save.png",
             tooltip  : "Save",
             skin     : "c9-toolbarbutton",
