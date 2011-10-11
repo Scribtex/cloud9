@@ -4,6 +4,7 @@
  */
 var jsDAV = require("jsdav"),
     DavPermission = require("./dav/permission"),
+    DavVersioning = require("./dav/versioning"),
     Async = require("asyncjs"),
     User = require("./user"),
     fs = require("fs"),
@@ -100,11 +101,11 @@ Ide.DEFAULT_PLUGINS = [
     //"ext/openfiles/openfiles",
     "ext/tree/tree",
     "ext/save/save",
-    "ext/gotofile/gotofile",
+    //"ext/gotofile/gotofile",
     "ext/newresource/newresource",
     "ext/undo/undo",
     "ext/clipboard/clipboard",
-    "ext/searchinfiles/searchinfiles",
+    //"ext/searchinfiles/searchinfiles",
     "ext/searchreplace/searchreplace",
     "ext/quickwatch/quickwatch",
     "ext/quicksearch/quicksearch",
@@ -117,7 +118,7 @@ Ide.DEFAULT_PLUGINS = [
     //"ext/run/run", //Add location rule
     //"ext/debugger/debugger", //Add location rule
     //"ext/noderunner/noderunner", //Add location rule
-    "ext/console/console",
+    //"ext/console/console",
     "ext/tabbehaviors/tabbehaviors",
     "ext/keybindings/keybindings",
     "ext/watcher/watcher",
@@ -147,6 +148,7 @@ Ide.DEFAULT_PLUGINS = [
                     this.davServer.plugins["filesearch"].FIND_CMD = __dirname+"/../../support/gnu-builds/find-sunos";
                 }
                 this.davServer.plugins["permission"] = DavPermission;
+                this.davServer.plugins["versioning"] = DavVersioning;
                 this.davInited = true;
                 this.emit("configureDav", this.davServer);
             }
