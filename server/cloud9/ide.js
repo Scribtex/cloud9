@@ -103,7 +103,6 @@ Ide.DEFAULT_PLUGINS = [
     "ext/undo/undo",
     "ext/clipboard/clipboard",
     "ext/searchreplace/searchreplace",
-    "ext/quickwatch/quickwatch",
     "ext/quicksearch/quicksearch",
     "ext/gotoline/gotoline",
     "ext/code/code",
