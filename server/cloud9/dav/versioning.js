@@ -2,8 +2,16 @@ var jsDAV_ServerPlugin = require("DAV/plugin").jsDAV_ServerPlugin;
 var sys = require("sys");
 var Spawn = require("child_process").spawn;
 
-Git = function(path) {
+Git = function(path, author) {
     this.path = path;
+    if (author && author.name && author.email) {
+        this.author = author;
+    } else {
+        this.author = {
+            name  : "Unknown",
+            email : "unknown@example.com"
+        }
+    }
 };
 
 (function() {
@@ -11,9 +19,17 @@ Git = function(path) {
     this.add    = function(path, onError, onSuccess) {
         this.$runCommand(["git", "add", path], onError, onSuccess);
     };
+
     this.commit = function(message, onError, onSuccess) {
-        this.$runCommand(["git", "commit", "-m", message], onError, onSuccess);
+        var authorString = this.author.name + " <" + this.author.email + ">";
+
+        this.$runCommand(
+            ["git", "commit", "-m", message, "--author", authorString],
+            onError,
+            onSuccess
+        );
     };
+
     this.rm_r   = function(path, onError, onSuccess) {
         this.$runCommand(["git", "rm", "-r", path], onError, onSuccess);
     };
@@ -56,8 +72,9 @@ module.exports = AutoGit = function(handler) {
     jsDAV_ServerPlugin.call(this, handler);
     
     this.handler = handler;
-    this.git     = new Git(this.handler.server.options.path);
-    
+    this.git     = new Git(this.handler.server.options.path, this.handler.server.user);
+   
+
     handler.addEventListener("afterCreateFile", this.afterCreate.bind(this));
     handler.addEventListener("afterWriteContent", this.afterSave.bind(this));
     handler.addEventListener("afterUnbind", this.afterDelete.bind(this));
