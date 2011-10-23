@@ -49,7 +49,9 @@ exports.main = function(options) {
             staticUrl: "/static",
             workspaceId: name,
             name: name,
-            version: options.version
+            version: options.version,
+            clsiUrl: options["clsi-url"],
+            clsiToken: options["clsi-token"]
         };
         var ide = new IdeServer(serverOptions, server, exts);
 

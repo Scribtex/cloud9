@@ -52,7 +52,9 @@ module.exports = Ide = function(options, httpServer, exts, socket) {
         projectName: options.projectName || this.workspaceDir.split("/").pop(),
         version: options.version,
         extra: options.extra,
-        remote: options.remote
+        remote: options.remote,
+        clsiUrl: options.clsiUrl,
+        clsiToken: options.clsiToken
     };
 
     this.$users = {};

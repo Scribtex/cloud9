@@ -28,7 +28,9 @@ var options = Parser.parse([
             var pref = ( value.charAt(0) == "/" ) ? "" :  process.cwd() + "/";
             return require(pref + value.replace(".js", "")).Config;
         }
-    }
+    },
+    {short: "t", long: "clsi-token", description: "Token to use with the CLSI", value: true},
+    {short: "s", long: "clsi-url", description: "Location of the CLSI server", value: true}
 ], true);
 
 // options in a config file override CLI options
