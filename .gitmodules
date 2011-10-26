@@ -29,6 +29,3 @@
 [submodule "client/ext/latex"]
 	path = client/ext/latex
 	url = git://github.com/jpallen/cloud9-latex-plugin.git
-[submodule "server/cloud9/ext/clsi-proxy"]
-	path = server/cloud9/ext/clsi-proxy
-	url = git://github.com/jpallen/cloud9-clsi-proxy.git
