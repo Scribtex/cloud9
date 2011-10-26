@@ -54,7 +54,8 @@ module.exports = Ide = function(options, httpServer, exts, socket) {
         extra: options.extra,
         remote: options.remote,
         clsiUrl: options.clsiUrl,
-        clsiToken: options.clsiToken
+        clsiToken: options.clsiToken,
+        urlNamespace: options.urlNamespace
     };
 
     this.$users = {};
@@ -186,7 +187,8 @@ Ide.DEFAULT_PLUGINS = [
                 offlineManifest: _self.options.offlineManifest,
                 scripts: _self.options.debug ? "" : aceScripts,
                 projectName: _self.options.projectName,
-                version: _self.options.version
+                version: _self.options.version,
+                urlNamespace: _self.options.urlNamespace
             };
 
             var settingsPlugin = _self.workspace.getExt("settings");
