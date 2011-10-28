@@ -25,7 +25,3 @@
 [submodule "support/gnu-builds"]
 	path = support/gnu-builds
 	url = git://github.com/ajaxorg/gnu-builds.git
-
-[submodule "client/ext/latex"]
-	path = client/ext/latex
-	url = git://github.com/jpallen/cloud9-latex-plugin.git
