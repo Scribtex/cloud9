@@ -11,7 +11,7 @@ var ide = require("core/ide");
 var ext = require("core/ext");
 var util = require("core/util");
 var settings = require("ext/settings/settings");
-var markup = require("text!ext/latex/compile.xml");
+var markup = require("text!ext/latex/latex.xml");
 var skin = require("text!ext/latex/skin.xml");
 var settingsMarkup = require("text!ext/latex/settings.xml");
 var filesystem = require("ext/filesystem/filesystem");
@@ -19,7 +19,7 @@ var pdf = require("ext/latex/elements/pdf");
 var logEntry = require("ext/latex/elements/log_entry");
 var pdfView = require("ext/latex/view");
 
-return ext.register("ext/latex/compile", {
+return ext.register("ext/latex/latex", {
     name    : "LaTeX Compilation",
     dev     : "ScribTeX.com",
     type    : ext.GENERAL,
@@ -189,7 +189,7 @@ return ext.register("ext/latex/compile", {
                 request.resources[i] = {
                     path     : file.path,
                     modified : file.modifieddate,
-                    url      : document.location.origin + ide.davPrefix + "/" + file.path
+                    url      : document.location.protocol + "//" + document.location.host + ide.davPrefix + "/" + file.path
                 };
             }
         }
@@ -228,15 +228,13 @@ return ext.register("ext/latex/compile", {
         
         var outputProduced = false;
         
-        this.pdfView.initOutputTabs();
-        
         if (compile.output_files && compile.output_files.length > 0) {
             outputProduced = true;
             this.pdf = compile.output_files[0];
-            this.pdfView.setPdfTabToPdf(this.pdf.url);
-            this.pdfView.showPdfTab();
+            this.pdfView.setPdf(this.pdf.url);
+            this.pdfView.showPdf();
         } else {
-            this.pdfView.setPdfTabToNoPdf();
+            this.pdfView.setPdf(null);
         }
         
         if (compile.logs && compile.logs.length > 0) {
@@ -248,7 +246,7 @@ return ext.register("ext/latex/compile", {
         }
         
         if (!outputProduced) {
-            this.pdfView.showLogTab();
+            this.pdfView.showLog();
         }
     },
 
@@ -267,7 +265,7 @@ return ext.register("ext/latex/compile", {
                 method   : "GET",
                 callback : function(data, state, extra) {
                     self.log.content = data;
-                    self.pdfView.setLogTabToLog(self.log.content);
+                    self.pdfView.setLog(self.log.content);
                     self.setState("done");
                 }
             });
@@ -283,7 +281,6 @@ return ext.register("ext/latex/compile", {
         switch(this.state) {
         case "idle":
             btnCompile.enable();
-            this.pdfView.hideSidePanel();
             break;
         case "compiling":
             btnCompile.disable();
@@ -293,7 +290,6 @@ return ext.register("ext/latex/compile", {
             break;
         case "done":
             btnCompile.enable();
-            this.pdfView.popOutSidePanel();
             break;
         case "error":
             btnCompile.enable();

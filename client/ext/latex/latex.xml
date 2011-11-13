@@ -2,7 +2,7 @@
     <a:state id="stDebugProcessRunning" active="false" />
     
     <a:skin id="latex"
-      src        = "{require('ext/latex/compile').skin}" 
+      src        = "{require('ext/latex/latex').skin}" 
       media-path = "/static/style/images/"
       icon-path  = "/static/style/icons/" />
 
@@ -16,7 +16,7 @@
           caption  = "Compile"
           skin     = "c9-toolbarbutton"
           icon     = "run.png"
-          onclick  = "require('ext/latex/compile').compile()" /> 
+          onclick  = "require('ext/latex/latex').compile()" /> 
     </a:bar>
     
     <a:vbox id="noPdf" edge="5 5 5 5">

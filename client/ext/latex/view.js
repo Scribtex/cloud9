@@ -68,10 +68,10 @@ define(function(require, exports, modules) {
             // when the tab is not visible.
             tabOutput.addEventListener("afterswitch", function(e) {
                 if (e.nextPage.name == "pdfPage") {
-                    self.$showPdf();
+                    self.$showPdfElement();
                 }
                 if (e.previousPage && e.previousPage.name == "pdfPage") {
-                    self.$hidePdf();
+                    self.$hidePdfElement();
                 }
             });
            
@@ -115,7 +115,6 @@ define(function(require, exports, modules) {
             settings.model.setQueryValue("latex/view/@style", this.view);
             this.$destroySinglePaneTabs();
             this.$initSideBySideTabs();
-            this.initOutputTabs();
         };
 
         this.$setViewToTabbed = function() {
@@ -123,7 +122,6 @@ define(function(require, exports, modules) {
             settings.model.setQueryValue("latex/view/@style", this.view);
             this.$destroySideBySideTabs();
             this.$initSinglePaneTabs();
-            this.initOutputTabs();
         };
 
         this.$initSideBySideTabs = function() {
@@ -159,10 +157,10 @@ define(function(require, exports, modules) {
             });
 
             this.colPdf.addEventListener("resize", function(e) {
-                self.$showPdf();
+                self.$showPdfElement();
             });
 
-            this.hideSidePanel();
+            this.$hideSidePanel();
         };
 
         this.$destroySideBySideTabs = function() {
@@ -219,7 +217,7 @@ define(function(require, exports, modules) {
         },
 
         // Create the tabs to display the PDF and log if they don't exist yet
-        this.initOutputTabs = function() {
+        this.$createOutputTabs = function() {
             if (!tabOutput.getPage("pdfPage")) {
                 this.pdfPage = tabOutput.add("PDF", "pdfPage");
             }
@@ -237,50 +235,47 @@ define(function(require, exports, modules) {
         this.$deactivateOutputTabs = function() {
             if (tabOutput.getPages().length > 0)
                 tabOutput.getPage().$deactivate();
-            this.$hidePdf();
+            this.$hidePdfElement();
         };
         
-        this.showPdfTab = function() {
+        this.showPdf = function() {
             tabOutput.set("pdfPage");
             if (this.$isTabbed()) {
                 this.$deactivateEditorTabs();
             }
             tabOutput.getPage("pdfPage").$activate();
-            this.$showPdf();
+            this.$showPdfElement();
+            this.$showSidePanel();
         }; 
         
-        this.showLogTab = function() {
+        this.showLog = function() {
             tabOutput.set("logPage");
             if (this.$isTabbed()) {
                 this.$deactivateEditorTabs();
             }
             tabOutput.getPage("logPage").$activate();
+            this.$showSidePanel();
         };
         
-        this.setPdfTabToPdf = function(url) {
+        this.setPdf = function(url) {
+            this.$createOutputTabs();
             this.$removePdf();
 
             var page = tabOutput.getPage("pdfPage");
             while (page.childNodes.length > 0) {
                 page.firstChild.removeNode();
             }
-           
-            this.$insertPdf(url);
-            this.$hidePdf();
-        };
-        
-        this.setPdfTabToNoPdf = function() {
-            this.$removePdf();
 
-            var page = tabOutput.getPage("pdfPage");
-            while (page.childNodes.length > 0) {
-                page.firstChild.removeNode();
+            if (typeof url === "string") {
+                this.$insertPdf(url);
+                this.$hidePdfElement();
+            } else {
+                page.appendChild(noPdf);
             }
-            
-            page.appendChild(noPdf);
         };
         
-        this.setLogTabToLog = function(content) {
+        this.setLog = function(content) {
+            this.$createOutputTabs();
             var page = tabOutput.getPage("logPage");
             
             // Get rid of existing content
@@ -320,7 +315,7 @@ define(function(require, exports, modules) {
                 page.appendChild(logEntry);
                 if (path && entry.line) {
                     logEntry.setProperty("ongoto", function() {
-                        self.jumpToFileAndLineNumber(path, entry.line);
+                        self.controller.jumpToFileAndLineNumber(path, entry.line);
                     });
                 }
             }
@@ -342,7 +337,7 @@ define(function(require, exports, modules) {
             page.appendChild(this.logContent);
         };
 
-        this.popOutSidePanel = function() {
+        this.$showSidePanel = function() {
             if (this.$isSideBySide()) {
                 this.colPdf.show();
                 this.pdfSplitter.show();
@@ -363,7 +358,7 @@ define(function(require, exports, modules) {
             }
         };
 
-        this.hideSidePanel = function() {
+        this.$hideSidePanel = function() {
             if (this.$isSideBySide()) {
                 this.colPdf.hide();
                 this.pdfSplitter.hide();
@@ -386,7 +381,7 @@ define(function(require, exports, modules) {
             }
         };
 
-        this.$hidePdf = function() {
+        this.$hidePdfElement = function() {
             if (this.pdfElement) {
                 var pdfExt = this.pdfElement.$ext
 
@@ -399,7 +394,7 @@ define(function(require, exports, modules) {
             }
         };
 
-        this.$showPdf = function() {
+        this.$showPdfElement = function() {
             if (this.pdfElement) {
                 var pageExt = tabOutput.getPage("pdfPage").$ext;
                 var pos = apf.getAbsolutePosition(pageExt);
