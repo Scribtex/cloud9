@@ -54,31 +54,10 @@
     
     <a:model id="mdlFileTemplates">
         <templates>
-            <item value="txt" icon="page_white_text.png" caption="Text file"><![CDATA[]]></item>
-            <item value="js" icon="page_white_code.png" caption="JavaScript file"><![CDATA[]]></item>
-            <item value="coffee" icon="page_white_code.png" caption="CoffeeScript file"><![CDATA[]]></item>
-            <item value="html" icon="html.png" caption="HTML file"><![CDATA[<!DOCTYPE html>
-<html  xmlns="http://www.w3.org/1999/xhtml">
-    <head profile="http://www.w3.org/2005/10/profile">
-        <title> </title>
-    </head>
-    <body>
-        
-    </body>
-</html>
-]]></item>
-            <item value="xml" icon="page_white_code_red.png" caption="XML file"><![CDATA[]]></item>
-            <item value="css" icon="css.png" caption="CSS file"><![CDATA[]]></item>
-            <item value="scss" icon="css.png" caption="SCSS file"><![CDATA[]]></item>
-            <item value="svg" icon="page_white_picture.png" caption="SVG file"><![CDATA[]]></item>
-            <item value="py" icon="script_code.png" caption="Python file"><![CDATA[]]></item>
-            <item value="php" icon="page_white_php.png" caption="PHP file"><![CDATA[<?php
-
-?>]]></item>
-            <item value="rb" icon="page_white_ruby.png" caption="Ruby file"><![CDATA[]]></item>
-            <item value="mli" icon="page_white_code.png" caption="OCaml file"><![CDATA[]]></item>
-            <item value="clj" icon="page_white_code.png" caption="Clojure file"><![CDATA[]]></item>
-            <item value="md" icon="page_white_text.png" caption="Markdown"><![CDATA[]]></item>
+            <item value="tex" icon="page_white_tex.png" caption="LaTeX File"><![CDATA[]]></item>
+            <item value="bib" icon="book.png" caption="BibTeX File"><![CDATA[]]></item>
+            <item value="sty" icon="sty.png" caption="Style File"><![CDATA[]]></item>
+            <item value="cls" icon="cls.png" caption="Class File"><![CDATA[]]></item>
         </templates>
     </a:model>
 </a:application>
