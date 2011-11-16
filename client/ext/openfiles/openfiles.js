@@ -30,7 +30,8 @@ module.exports = ext.register("ext/openfiles/openfiles", {
             skin    : "mnubtn",
             state   : "true",
             "class" : "open_files",
-            caption : "Active Files"
+            caption : "Open",
+            margin  : "0 0 5 0"
         }), el);
 
         var _self = this;

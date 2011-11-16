@@ -135,7 +135,8 @@ module.exports = ext.register("ext/tree/tree", {
             state   : "true",
             value   : "true",
             "class" : "project_files",
-            caption : "Project Files"
+            caption : "Files",
+            margin  : "0 0 5 0"
         }), navbar.firstChild);
         navbar.current = this;
 

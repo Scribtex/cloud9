@@ -114,13 +114,12 @@ module.exports = ext.register("ext/editors/editors", {
                     },
                     childNodes : [
                         btn = new apf.button({
-                            style : "display:inline-block;margin: 0 0 5px 13px;",
+                            style : "display:inline-block;margin: 0 0 5px 2px;",
                             right : 5,
                             top   : 8,
-                            width : 30,
-                            height : 17,
-                            skin : "btn_icon_only",
-                            background : "plustabbtn.png|horizontal|3|30",
+                            width : 23,
+                            height : 19,
+                            skin : "newtab",
                             onclick : function(){
                                 require("ext/newresource/newresource").newfile();
                             }
@@ -133,9 +132,7 @@ module.exports = ext.register("ext/editors/editors", {
                     width : 17,
                     height : 17,
                     submenu : "mnuTabs",
-                    skin : "btn_icon_only",
-                    "class" : "tabmenubtn",
-                    background : "tabdropdown.png|horizontal|3|17"
+                    skin    : "tabdropdown",
                 }) /*,
                 new apf.hbox({
                     id      : "barButtons",

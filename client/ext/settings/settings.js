@@ -130,7 +130,8 @@ module.exports = ext.register("ext/settings/settings", {
             skin    : "mnubtn",
             state   : true,
             "class" : "preferences",
-            caption : "Preferences"
+            caption : "Settings",
+            margin  : "0 0 5 0"
         }), navbar.firstChild);
 
         var _self = this;
