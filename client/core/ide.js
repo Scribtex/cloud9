@@ -109,7 +109,7 @@ define(function(require, exports, module) {
             // fire up the socket connection:
             var options = {
                 "remember transport": false,
-                transports:  ["websocket", "htmlfile", "xhr-multipart", "xhr-polling"],
+                transports:  ["htmlfile", "xhr-multipart", "xhr-polling"],
                 reconnect: false,
                 "connect timeout": 5000,
                 "try multiple transports": true,
