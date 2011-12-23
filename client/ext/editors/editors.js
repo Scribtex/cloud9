@@ -126,14 +126,14 @@ module.exports = ext.register("ext/editors/editors", {
                         })
                     ]
                 }),
-                new apf.button({
+                /* new apf.button({
                     top   : 8,
                     left  : 5,
                     width : 17,
                     height : 17,
                     submenu : "mnuTabs",
                     skin    : "tabdropdown",
-                }) /*,
+                }) */ /*,
                 new apf.hbox({
                     id      : "barButtons",
                     edge    : "0 0 0 6",
