@@ -208,8 +208,9 @@ module.exports = ext.register("ext/code/code", {
             //Add a panel to the statusbar showing the length of the document
             sbMain.appendChild(new apf.section({
                 caption : "Length: {ceEditor.value.length}"
-            })),
+            }))
 
+            /*
             mnuView.appendChild(new apf.item({
                 caption : "Syntax Highlighting",
                 submenu : "mnuSyntax"
@@ -228,6 +229,7 @@ module.exports = ext.register("ext/code/code", {
                 caption : "Wrap Lines",
                 checked : "[{require('ext/settings/settings').model}::editors/code/@wrapmode]"
             }))
+            */
         );
         
         mnuSyntax.onitemclick = function(e) {

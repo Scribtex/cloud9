@@ -133,6 +133,7 @@ module.exports = ext.register("ext/panels/panels", {
     },
     
     init : function(amlNode){
+        /*
         this.nodes.push(
             barMenu.appendChild(new apf.button({
                 submenu : "mnuWindows",
@@ -142,6 +143,7 @@ module.exports = ext.register("ext/panels/panels", {
             })),
             mnuWindows
         );
+        */
         
         /**** Support for state preservation ****/
         

@@ -172,6 +172,7 @@ module.exports = ext.register("ext/tree/tree", {
 
         colLeft.appendChild(winFilesViewer);
 
+        /*
         mnuView.appendChild(new apf.divider());
         mnuView.appendChild(new apf.item({
             id      : "mnuitemHiddenFiles",
@@ -187,6 +188,8 @@ module.exports = ext.register("ext/tree/tree", {
             }
         }));
         davProject.setAttribute("showhidden", "[{require('ext/settings/settings').model}::auto/tree/@showhidden]");
+        */
+        davProject.setAttribute("showhidden", false);
 
         mnuView.appendChild(new apf.divider());
 
