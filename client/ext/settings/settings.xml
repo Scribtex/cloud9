@@ -16,11 +16,13 @@
           anchors  = "0 0 0 0"
           overflow = "hidden">
             <a:bar id="barSettings" skinset="prefs" skin="bar-preferences" flex="1">
+                <!--
                 <div class="header">
                     <span></span><div>General</div>
                 </div>
                 <a:checkbox class="underlined first" value="[general/@openfiles]">On Load, Restore Previous State</a:checkbox>
                 <a:checkbox value="[general/@saveallbeforerun]">Save All Files Before Running</a:checkbox>
+                -->
             </a:bar>
             <a:scrollbar
                 for      = "barSettings"
