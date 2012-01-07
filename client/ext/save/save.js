@@ -261,26 +261,38 @@ module.exports = ext.register("ext/save/save", {
         var value = doc.getValue();
 
         fs.saveFile(path, value, function(data, state, extra){
-            if (state != apf.SUCCESS) {
-                util.alert(
-                    "Could not save document",
-                    "An error occurred while saving this document",
-                    "Please see if your internet connection is available and try again. "
-                        + (state == apf.TIMEOUT
-                            ? "The connection timed out."
-                            : "The error reported was " + extra.message));
-            }
-
-            panel.setAttribute("caption", "Saved file " + path);
-            ide.dispatchEvent("afterfilesave", {node: node, doc: doc, value: value});
-
             apf.xmldb.removeAttribute(node, "saving");
-            apf.xmldb.removeAttribute(node, "new");
-            apf.xmldb.setAttribute(node, "modifieddate", apf.queryValue(extra.data, "//d:getlastmodified"));
 
-            if (_self.saveBuffer[path]) {
-                delete _self.saveBuffer[path];
-                _self.quicksave(page);
+            if (state != apf.SUCCESS) {
+                // Undo removal of changed status
+                apf.xmldb.setAttribute(node, "changed", "1");
+
+                if (extra.status == 409 /* Conflict */) {
+                    ide.dispatchEvent("saveconflict", {
+                        node             : node, 
+                        latestRevisionId : extra.http.getResponseHeader("X-Revision-Id")
+                    });
+                } else {
+                    util.alert(
+                        "Could not save document",
+                        "An error occurred while saving this document",
+                        "Please see if your internet connection is available and try again. "
+                            + (state == apf.TIMEOUT
+                                ? "The connection timed out."
+                                : "The error reported was " + extra.message));
+                }
+            } else {
+                panel.setAttribute("caption", "Saved file " + path);
+                ide.dispatchEvent("afterfilesave", {node: node, doc: doc, value: value});
+
+                apf.xmldb.removeAttribute(node, "changed");
+                apf.xmldb.removeAttribute(node, "new");
+                apf.xmldb.setAttribute(node, "modifieddate", apf.queryValue(extra.data, "//d:getlastmodified"));
+
+                if (_self.saveBuffer[path]) {
+                    delete _self.saveBuffer[path];
+                    _self.quicksave(page);
+                }
             }
         });
 
@@ -334,7 +346,7 @@ module.exports = ext.register("ext/save/save", {
                 self._saveAsNoUI(page);
             }
 
-            if (file.getAttribute("newfile") === 1) {
+            if (parseInt(file.getAttribute("newfile") || "0", 10) === 1) {
                 apf.xmldb.removeAttribute(file, "newfile");
                 apf.xmldb.removeAttribute(file, "changed");
                 var xpath = newPath.replace(new RegExp("\/" + cloud9config.davPrefix.split("/")[1]), "")
