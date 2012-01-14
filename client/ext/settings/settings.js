@@ -41,11 +41,20 @@ module.exports = ext.register("ext/settings/settings", {
     },
 
     saveToFile : function() {
-        ide.send(JSON.stringify({
-            command: "settings",
-            action: "set",
-            settings: this.model.data && apf.xmldb.cleanXml(this.model.data.xml) || ""
-        }));
+        var settings = this.model.data && apf.xmldb.cleanXml(this.model.data.xml) || "";
+         
+        var url = cloud9config.urlNamespace + "/projects/" + 
+                  cloud9config.projectOwnerSlug + "/" + cloud9config.projectSlug + 
+                  "/settings";
+
+        apf.ajax(url, {
+            method      : "PUT",
+            contentType : "application/xml",
+            data        : settings,
+            callback    : function(data, state, extra) {
+                // Nothing to do. If we fail we fail silently.
+            }
+        });
     },
 
     saveSettingsPanel: function() {

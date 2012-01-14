@@ -105,6 +105,7 @@ define(function(require, exports, module) {
             //return "Are you sure you want to close Cloud9? Your state will be saved and will be loaded next time you start Cloud9";
         });
 
+        /*
         ide.addEventListener("extload", function() {
             // fire up the socket connection:
             var options = {
@@ -238,6 +239,10 @@ define(function(require, exports, module) {
             }
             
             ide.socket.send(msg);
+        };
+        */
+        ide.send = function(msg) {
+            console.log("Tried to send", msg);
         };
         
         ide.getActivePageModel = function() {
