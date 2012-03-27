@@ -46,6 +46,7 @@ define(function(require, exports, module) {
             /**** Error Handling ****/
 
             //Catch all unhandled errors
+            /*
             var loc = location.href;
             if (
                 location.protocol != "file:"
@@ -94,6 +95,7 @@ define(function(require, exports, module) {
                     self.console && console.error("An APF error occurred", e);
                 });
             }
+            */
         };
 
         apf.addEventListener("load", function(){
