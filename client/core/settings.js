@@ -26,16 +26,20 @@ module.exports = {
     },
     
     saveToFile : function() {
-        if (ide.onLine) {
-            ide.send(JSON.stringify({
-                command: "settings",
-                action: "set",
-                settings: this.model.data && apf.xmldb.cleanXml(this.model.data.xml) || ""
-            }));
-        }
-        else if (this.model.data) {
-            localStorage[this.sIdent] = apf.xmldb.cleanXml(this.model.data.xml) || "";
-        }
+        var settings = this.model.data && apf.xmldb.cleanXml(this.model.data.xml) || "";
+         
+        var url = cloud9config.urlNamespace + "/projects/" + 
+                  cloud9config.projectOwnerSlug + "/" + cloud9config.projectSlug + 
+                  "/settings";
+
+        apf.ajax(url, {
+            method      : "PUT",
+            contentType : "application/xml",
+            data        : settings,
+            callback    : function(data, state, extra) {
+                // Nothing to do. If we fail we fail silently.
+            }
+        });
     },
     
     load : function(xml){
@@ -51,8 +55,8 @@ module.exports = {
                     model : this.model
                 });
             } catch(e) {
-                self["requ"+"ire"]("ext/filesystem/filesystem")    
-                  .saveFile("/workspace/.c9.brokensettings.xml", xml.xml || xml);
+                //self["requ"+"ire"]("ext/filesystem/filesystem")    
+                //  .saveFile("/workspace/.c9.brokensettings.xml", xml.xml || xml);
                 
                 this.model.load(template);
                 
@@ -102,6 +106,7 @@ module.exports = {
         else if (apf.IdeSettings)
             xml = apf.IdeSettings;
         
+        /*
         if (!xml) {
             ide.addEventListener("socketMessage", function(e){
                 if (e.message.type == "settings") {
@@ -119,6 +124,7 @@ module.exports = {
                 ide.send(JSON.stringify({command: "settings", action: "get"}));
             return;
         }
+        */
 
         this.load(xml);
         
