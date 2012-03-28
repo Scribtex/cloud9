@@ -90,6 +90,7 @@ module.exports = ext.register("ext/save/save", {
             id       : "btnSave",
             icon     : "save.png",
             tooltip  : "Save",
+            caption  : "Save",
             skin     : "c9-toolbarbutton",
             disabled : "{!!!tabEditors.activepage}",
             onclick  : this.quicksave.bind(this)

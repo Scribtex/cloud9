@@ -67,7 +67,7 @@ module.exports = ext.register("ext/settings/settings", {
     hook : function(){
         panels.register(this, {
             position : 100000,
-            caption: "Preferences",
+            caption: "Settings",
             "class": "preferences"
         });
         
@@ -95,8 +95,6 @@ module.exports = ext.register("ext/settings/settings", {
         this.panel = winSettings;
 
         colLeft.appendChild(winSettings);
-        
-        this.getHeading("General");
         
         this.nodes.push(winSettings);
     },

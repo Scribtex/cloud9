@@ -18,13 +18,7 @@
         <a:button
           top="-22"
           skin="header-btn"
-          right="5"
-          icon="panel_settings.png"
-          submenu="mnuFilesSettings"/>
-        <a:button
-          top="-22"
-          skin="header-btn"
-          right="29"
+          right="0"
           icon="panel_refresh.png"
           visible = "{trFiles.visible}"
           onclick="require('ext/tree/tree').refresh()" />

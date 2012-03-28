@@ -42,7 +42,7 @@ module.exports = ext.register("ext/tree/tree", {
     hook : function(){
         panels.register(this, {
             position : 1000,
-            caption: "Project Files",
+            caption: "Files",
             "class": "project_files"
         });
     },
@@ -64,26 +64,9 @@ module.exports = ext.register("ext/tree/tree", {
 
         colLeft.appendChild(winFilesViewer);
 
-        mnuFilesSettings.appendChild(new apf.item({
-            id      : "mnuitemHiddenFiles",
-            type    : "check",
-            caption : "Show Hidden Files",
-            visible : "{trFiles.visible}",
-            checked : "[{require('ext/settings/settings').model}::auto/tree/@showhidden]",
-            onclick : function(){
-                _self.changed = true;
-                (davProject.realWebdav || davProject)
-                    .setAttribute("showhidden", this.checked);
-
-                _self.refresh();
-                settings.save();
-            }
-        }));
-
         ide.addEventListener("loadsettings", function(e) {
             var model = e.model;
-            (davProject.realWebdav || davProject).setAttribute("showhidden",
-                apf.isTrue(model.queryValue('auto/tree/@showhidden')));
+            (davProject.realWebdav || davProject).setAttribute("showhidden", false);
         });
 
         mnuView.appendChild(new apf.divider());

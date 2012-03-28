@@ -51,6 +51,7 @@ module.exports = ext.register("ext/panels/panels", {
             skin    : "mnubtn",
             state   : "true",
             //value   : "true",
+            margin  : "0 0 5 0",
             "class" : options["class"],
             caption : options.caption
         }), beforePanel && beforePanel.button || navbar.firstChild);
@@ -286,15 +287,7 @@ module.exports = ext.register("ext/panels/panels", {
         this.nodes.push(
             this.group = apf.document.body.appendChild(new apf.group({
                 value : "[{req"+"uire('ext/settings/settings').model}::auto/panels/@active]"
-            })),
-            
-            barMenu.appendChild(new apf.button({
-                submenu : "mnuWindows",
-                caption : "Windows",
-                skin    : "c9-menu-btn",
-                margin  : "1 0 0 0"
-            })),
-            mnuWindows
+            }))
         );
         
         colLeft.addEventListener("resize", function(){
@@ -362,16 +355,6 @@ module.exports = ext.register("ext/panels/panels", {
                 xmlSettings.nodeValue = apf.serialize(_self.$settings);
                 return true;
             }
-        });
-        
-        ide.addEventListener("init.ext/settings/settings", function (e) {
-            var heading = e.ext.getHeading("General");
-            heading.appendChild(new apf.checkbox({
-                "class" : "underlined",
-                value : "[general/@animateui]",
-                skin  : "checkbox_grey",
-                label : "Enable UI Animations"
-            }))
         });
     },
     

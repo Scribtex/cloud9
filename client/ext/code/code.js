@@ -340,12 +340,6 @@ module.exports = ext.register("ext/code/code", {
 
             if (e.doc && e.doc.editor && e.doc.editor.ceEditor) {
                 // check if there is a scriptid, if not check if the file is somewhere in the stack
-                if (!e.node.getAttribute("scriptid") && mdlDbgStack && mdlDbgStack.data) {
-                    var nodes = mdlDbgStack.data.selectNodes("//frame[@script='" + e.node.getAttribute("scriptname").replace(ide.workspaceDir + "/", "") + "']");
-                    if (nodes.length) {
-                        e.node.setAttribute("scriptid", nodes[0].getAttribute("scriptid"));
-                    }
-                }
                 e.doc.editor.ceEditor.afterOpenFile(e.doc.editor.ceEditor.getSession());
             }
         });
@@ -366,37 +360,6 @@ module.exports = ext.register("ext/code/code", {
         ceEditor.$editor.commands = this.commandManager;
 
         var _self = this;
-
-        this.nodes.push(
-            //Add a panel to the statusbar showing whether the insert button is pressed
-            sbMain.appendChild(new apf.section({
-                caption : "{ceEditor.insert}"
-            })),
-
-            //Add a panel to the statusbar showing the length of the document
-            sbMain.appendChild(new apf.section({
-                caption : "Length: {ceEditor.value.length}"
-            })),
-
-            mnuView.appendChild(new apf.item({
-                caption : "Syntax Highlighting",
-                submenu : "mnuSyntax"
-            })),
-
-            mnuView.appendChild(new apf.divider()),
-
-            mnuView.appendChild(new apf.item({
-                type    : "check",
-                caption : "Show Invisibles",
-                checked : "[{require('ext/settings/settings').model}::editors/code/@showinvisibles]"
-            })),
-
-            mnuView.appendChild(new apf.item({
-                type    : "check",
-                caption : "Wrap Lines",
-                checked : "{ceEditor.wrapmode}"
-            }))
-        );
 
         mnuSyntax.onitemclick = function(e) {
             var file = ide.getActivePageModel();
