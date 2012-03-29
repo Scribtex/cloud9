@@ -267,31 +267,38 @@ module.exports = ext.register("ext/save/save", {
         var value = doc.getValue();
 
         fs.saveFile(path, value, function(data, state, extra){
-            if (state != apf.SUCCESS) {
-                util.alert(
-                    "Could not save document",
-                    "An error occurred while saving this document",
-                    "Please see if your internet connection is available and try again. "
-                        + (state == apf.TIMEOUT
-                            ? "The connection timed out."
-                            : "The error reported was " + extra.message));
-            }
-
-            panel.setAttribute("caption", "Saved file " + path);
-            ide.dispatchEvent("afterfilesave", {node: node, doc: doc, value: value});
-            ide.dispatchEvent("track_action", {
-                type: "save as filetype",
-                fileType: node.getAttribute("name").split(".").pop(),
-                success: state != apf.SUCCESS ? "false" : "true"
-            });
-
             apf.xmldb.removeAttribute(node, "saving");
-            apf.xmldb.removeAttribute(node, "new");
-            apf.xmldb.setAttribute(node, "modifieddate", apf.queryValue(extra.data, "//d:getlastmodified"));
 
-            if (_self.saveBuffer[path]) {
-                delete _self.saveBuffer[path];
-                _self.quicksave(page);
+            if (state != apf.SUCCESS) {
+                // Undo removal of changed status
+                apf.xmldb.setAttribute(node, "changed", "1");
+
+                if (extra.status == 409 /* Conflict */) {
+                    ide.dispatchEvent("saveconflict", {
+                        node             : node, 
+                        latestRevisionId : extra.http.getResponseHeader("X-Revision-Id")
+                    });
+                } else {
+                    util.alert(
+                        "Could not save document",
+                        "An error occurred while saving this document",
+                        "Please see if your internet connection is available and try again. "
+                            + (state == apf.TIMEOUT
+                                ? "The connection timed out."
+                                : "The error reported was " + extra.message));
+                }
+            } else {
+                panel.setAttribute("caption", "Saved file " + path);
+                ide.dispatchEvent("afterfilesave", {node: node, doc: doc, value: value});
+
+                apf.xmldb.removeAttribute(node, "changed");
+                apf.xmldb.removeAttribute(node, "new");
+                apf.xmldb.setAttribute(node, "modifieddate", apf.queryValue(extra.data, "//d:getlastmodified"));
+
+                if (_self.saveBuffer[path]) {
+                    delete _self.saveBuffer[path];
+                    _self.quicksave(page);
+                }
             }
         });
 
