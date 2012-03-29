@@ -39,104 +39,17 @@ apf.actiontracker.actions.aceupdate = function(undoObj, undo){
 };
 
 var SupportedModes = {
-    "application/javascript": "javascript",
-    "application/json": "json",
-    "text/css": "css",
-    "text/x-scss": "scss",
-    "text/html": "html",
-    "application/xhtml+xml": "html",
-    "application/xml": "xml",
-    "application/rdf+xml": "xml",
-    "application/rss+xml": "xml",
-    "image/svg+xml": "svg",
-    "application/wsdl+xml": "xml",
-    "application/xslt+xml": "xml",
-    "application/atom+xml": "xml",
-    "application/mathml+xml": "xml",
-    "application/x-httpd-php": "php",
-    "text/x-script.python": "python",
-    "text/x-script.ruby": "ruby",
-    "text/x-script.perl": "perl",
-    "text/x-script.perl-module": "perl",
-    "text/x-c": "c_cpp",
-    "text/x-java-source": "java",
-    "text/x-groovy": "groovy",
-    "text/x-csharp": "csharp",
-    "text/x-script.coffeescript": "coffee",
-    "text/x-markdown": "markdown",
-    "text/x-web-textile": "textile",
-    "text/x-script.ocaml": "ocaml",
-    "text/x-script.clojure": "clojure",
-    "application/x-latex": "latex",
-    "text/x-lua": "lua",
-    "text/x-script.powershell": "powershell",
-    "text/x-scala": "scala",
-    "text/x-coldfusion": "coldfusion",
-    "text/x-sql": "sql"
+    "application/x-tex"    : "latex",
+    "application/x-bibtex" : "latex",
+    "style"                : "latex",
+    "class"                : "latex"
 };
 
 var contentTypes = {
-    "js": "application/javascript",
-    "json": "application/json",
-    "css": "text/css",
-    "less": "text/css",
-    "scss": "text/x-scss",
-    "sass": "text/x-sass",
-
-    "xml": "application/xml",
-    "rdf": "application/rdf+xml",
-    "rss": "application/rss+xml",
-    "svg": "image/svg+xml",
-    "wsdl": "application/wsdl+xml",
-    "xslt": "application/xslt+xml",
-    "atom": "application/atom+xml",
-    "mathml": "application/mathml+xml",
-    "mml": "application/mathml+xml",
-
-    "php": "application/x-httpd-php",
-    "html": "text/html",
-    "xhtml": "application/xhtml+xml",
-    "coffee": "text/x-script.coffeescript",
-    "*Cakefile": "text/x-script.coffeescript",
-    "py": "text/x-script.python",
-
-    "ru": "text/x-script.ruby",
-    "gemspec": "text/x-script.ruby",
-    "rake": "text/x-script.ruby",
-    "rb": "text/x-script.ruby",
-
-    "c": "text/x-c",
-    "cc": "text/x-c",
-    "cpp": "text/x-c",
-    "cxx": "text/x-c",
-    "h": "text/x-c",
-    "hh": "text/x-c",
-
-    "cs": "text/x-csharp",
-
-    "java": "text/x-java-source",
-    "clj": "text/x-script.clojure",
-    "groovy": "text/x-groovy",
-    "scala": "text/x-scala",
-
-    "ml": "text/x-script.ocaml",
-    "mli": "text/x-script.ocaml",
-
-    "md": "text/x-markdown",
-    "markdown": "text/x-markdown",
-    "textile": "text/x-web-textile",
-    "latex": "application/x-latex",
-    "tex": "application/x-latex",
-    "ltx": "application/x-latex",
-
-    "lua": "text/x-lua",
-
-    "pl": "text/x-script.perl",
-    "pm": "text/x-script.perl-module",
-
-    "ps1": "text/x-script.powershell",
-    "cfm": "text/x-coldfusion",
-    "sql": "text/x-sql"
+    "tex"  : "application/x-tex",
+    "bib"  : "application/x-bibtex",
+    "sty"  : "style",
+    "cls"  : "class"
 };
 
 module.exports = ext.register("ext/code/code", {
