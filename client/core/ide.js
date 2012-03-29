@@ -47,58 +47,6 @@ define(function(require, exports, module) {
         this.offlineFileSystemSupport = false;
 
         this.dispatchEvent("load");
-
-        /**** Error Handling ****/
-
-        //Catch all unhandled errors
-        var loc = location.href;
-        if (
-            location.protocol != "file:"
-            && loc.indexOf("dev") == -1
-            && (loc.indexOf("cloud9ide.com") > -1 || loc.indexOf("c9.io") > -1))
-        {
-            window.onerror = function(m, u, l) {
-                if (self.console)
-                    console.log("An error occurred, the Cloud9 system admin has been notified.");
-                apf.ajax("/debug", {
-                    method      : "POST",
-                    contentType : "application/json",
-                    data        : apf.serialize({
-                        agent       : navigator.userAgent,
-                        type        : "General Javascript Error",
-                        e           : [m, u, l],
-                        workspaceId : ide.workspaceId
-                    })
-                });
-                return true;
-            };
-
-            //Catch all APF Routed errors
-            apf.addEventListener("error", function(e){
-                apf.ajax("/debug", {
-                    method      : "POST",
-                    contentType : "application/json",
-                    data        : apf.serialize({
-                        agent       : navigator.userAgent,
-                        type        : "APF Error",
-                        message     : e.message,
-                        tgt         : e.currentTarget && e.currentTarget.serialize(),
-                        url         : e.url,
-                        state       : e.state,
-                        e           : e.error,
-                        workspaceId : ide.workspaceId
-                    })
-                });
-            });
-        }
-        else {
-//                window.onerror = function(m, u, l) {
-//                    self.console && console.error("An error occurred", m, u, l);
-//                }
-            apf.addEventListener("error", function(e){
-                self.console && console.error("An APF error occurred", e);
-            });
-        }
     };
 
     apf.addEventListener("load", function(){
