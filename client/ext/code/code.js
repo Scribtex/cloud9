@@ -203,6 +203,11 @@ module.exports = ext.register("ext/code/code", {
         }
 
         doc.editor = this;
+        
+        // When editing TeX documents we want lines to wrap
+        doc.acesession.setUseWrapMode(true);
+        doc.acesession.setWrapLimitRange(0,0);
+        ceEditor.$editor.setShowPrintMargin(false);
     },
 
     hook: function() {

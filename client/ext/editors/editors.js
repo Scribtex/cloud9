@@ -35,18 +35,6 @@ module.exports = ext.register("ext/editors/editors", {
             }
         }));*/
 
-        //Add a menu item to the list of editors
-        oExtension.$itmEditor = mnuEditors.appendChild(new apf.item({
-            type     : "radio",
-            caption  : oExtension.name,
-            value    : oExtension.path,
-            disabled : "{!require('ext/editors/editors').isEditorAvailable(tabEditors.activepage, '" 
-                + oExtension.path + "')}",
-            onclick  : function(){
-                require('ext/editors/editors').switchEditor(this.value);
-            }
-        }));
-
         var _self = this;
         oExtension.fileExtensions.each(function(mime){
             (_self.fileExtensions[mime] || (_self.fileExtensions[mime] = [])).push(oExtension);
@@ -58,7 +46,6 @@ module.exports = ext.register("ext/editors/editors", {
 
     unregister : function(oExtension){
         //oExtension.$rbEditor.destroy(true, true);
-        oExtension.$itmEditor.destroy(true, true);
 
         var _self = this;
         oExtension.fileExtensions.each(function(fe){
@@ -259,7 +246,6 @@ module.exports = ext.register("ext/editors/editors", {
         if (!editor.inited)
             this.initEditor(editor);
 
-        editor.$itmEditor.select();
         //editor.$rbEditor.select();
 
         page.setAttribute("type", path);
@@ -344,7 +330,6 @@ module.exports = ext.register("ext/editors/editors", {
         });*/
 
         editor.enable();
-        editor.$itmEditor.select();
         //editor.$rbEditor.select();
 
         this.currentEditor = editor;
@@ -480,7 +465,6 @@ module.exports = ext.register("ext/editors/editors", {
         }*/
         apf.history.setHash("!" + path);
         
-        toHandler.$itmEditor.select();
         //toHandler.$rbEditor.select();
 
         /*if (self.TESTING) {}
@@ -511,11 +495,6 @@ module.exports = ext.register("ext/editors/editors", {
         apf.document.body.appendChild(new apf.menu({
             id : "mnuEditors"
         }));
-        
-        mnuView.insertBefore(new apf.item({
-            caption : "Editor",
-            submenu : "mnuEditors"
-        }), mnuView.firstChild);
         
         ext.addType("Editor", function(oExtension){
             _self.register(oExtension);
