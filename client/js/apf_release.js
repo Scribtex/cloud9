@@ -6672,8 +6672,8 @@ this.$supportedProperties.push("fake","caption","icon","tooltip","type","buttons
 this.$propHandlers.closebtn=function(value){var _self=this;if(value){var btncontainer=this.parentNode.$getLayoutNode("button","container",this.$button);
 this.parentNode.$getNewContext("btnclose");var elBtnClose=this.parentNode.$getLayoutNode("btnclose");
 if(elBtnClose){apf.setStyleClass(this.$button,"btnclose");elBtnClose.addEventListener("mousedown",function(e){apf.cancelBubble(e,apf.lookup(_self.$uniqueId));
-});elBtnClose.addEventListener("click",function(e){var page=apf.lookup(_self.$uniqueId);
-page.parentNode.remove(page,e);});btncontainer.appendChild(elBtnClose);}}};this.$propHandlers.tooltip=function(value){if(!this.parentNode){return;
+},false);elBtnClose.addEventListener("click",function(e){var page=apf.lookup(_self.$uniqueId);
+page.parentNode.remove(page,e);}, false);btncontainer.appendChild(elBtnClose);}}};this.$propHandlers.tooltip=function(value){if(!this.parentNode){return;
 }var node=this.parentNode.$getLayoutNode("button","caption",this.$button);(node.nodeType==1?node:node.parentNode).setAttribute("title",value||"");
 };this.$propHandlers.caption=function(value){if(!this.parentNode){return;}var node=this.parentNode.$getLayoutNode("button","caption",this.$button);
 if(node.nodeType==1){node.innerHTML=value;}else{node.nodeValue=value;}};this.$propHandlers.icon=function(value){if(!this.parentNode){return;
